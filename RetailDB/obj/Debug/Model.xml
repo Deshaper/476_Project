@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="RetailDB.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\AJIBO\ONEDRIVE\DOCUMENTS\GITHUB\RETAILMANAGMENT\RETAILDB\OBJ\DEBUG\RETAILDB.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\AJIBO\SOURCE\REPOS\DESHAPER\476_PROJECT\RETAILDB\OBJ\DEBUG\RETAILDB.DLL" />
 			<Metadata Name="AssemblyName" Value="RetailDB" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\RetailDB.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\ajibo\Source\Repos\Deshaper\476_Project\RetailDB\obj\Debug\RetailDB.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>
