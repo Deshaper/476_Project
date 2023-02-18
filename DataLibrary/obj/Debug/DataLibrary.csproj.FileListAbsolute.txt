@@ -1,0 +1,6 @@
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.pdb

@@ -1,0 +1,10 @@
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\bin\Debug\RetailDB.dacpac
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\bin\Debug\RetailDB.dll
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\bin\Debug\RetailDB.pdb
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\RetailDB.sqlproj.AssemblyReference.cache
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\Model.xml
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\refactor.xml
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\postdeploy.sql
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\predeploy.sql
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\RetailDB.dll
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\RetailDB\obj\Debug\RetailDB.pdb
