@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using MVC476.Data;
 using MVC476.Models;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MVC476AccountContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MVC476AccountContext") ?? throw new InvalidOperationException("Connection string 'MVC476AccountContext' not found.")));
 builder.Services.AddDbContext<MVC476Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MVC476Context") ?? throw new InvalidOperationException("Connection string 'MVC476Context' not found.")));
 
