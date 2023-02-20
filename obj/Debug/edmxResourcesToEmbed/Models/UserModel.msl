@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Retail_ManagementModelStoreContainer" CdmEntityContainer="Retail_ManagementEntities">
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Retail_ManagementModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="eff_strt_dte" ColumnName="eff_strt_dte" />
+          <ScalarProperty Name="eff_end_dte" ColumnName="eff_end_dte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

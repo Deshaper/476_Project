@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CS476.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password_hash)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.first_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eff_strt_dte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eff_end_dte)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password_hash)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eff_strt_dte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eff_end_dte)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Userid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Userid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Userid })
+        </td>
+    </tr>
+}
+
+</table>
