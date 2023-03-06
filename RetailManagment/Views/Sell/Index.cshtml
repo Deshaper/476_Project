@@ -1,0 +1,36 @@
+﻿@model IEnumerable<RetailManagment.Models.Seller>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Post_product", "Post_Your_Product")
+</p>
+<!-- Still require to do: Display the login customer name by pass in the customer id-->
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Seller_Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller_Name)
+            </td>
+            <td>
+                @Html.ActionLink("EditProfile", "Edit", new { id = item.Seller_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Seller_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Seller_id })
+            </td>
+        </tr>
+    }
+
+</table>

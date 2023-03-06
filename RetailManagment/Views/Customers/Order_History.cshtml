@@ -1,0 +1,38 @@
+﻿@model IEnumerable<RetailManagment.Models.Purchased>
+
+@{
+    ViewBag.Title = "Order_History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order_History</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pur_date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pur_date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Pur_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Pur_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Pur_id })
+            </td>
+        </tr>
+    }
+
+</table>

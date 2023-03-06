@@ -1,0 +1,17 @@
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\ajibo\OneDrive\Documents\GitHub\RetailManagment\DataLibrary\obj\Debug\DataLibrary.pdb
+C:\Users\ajibo\Source\Repos\Deshaper\476_Project\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\ajibo\Source\Repos\Deshaper\476_Project\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\ajibo\Source\Repos\Deshaper\476_Project\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ajibo\Source\Repos\Deshaper\476_Project\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\ajibo\Source\Repos\Deshaper\476_Project\DataLibrary\obj\Debug\DataLibrary.pdb
+C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.pdb

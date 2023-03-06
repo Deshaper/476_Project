@@ -1,0 +1,431 @@
+﻿
+USE [Retail_management]
+GO
+
+/****** Object:  Table [dbo].[Cart]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Categories]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Check_out]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Comment]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Commodity]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Commodity_rate]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Customer]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Purchased]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Rate]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Recipt]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Seller]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Shipment]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+/****** Object:  Table [dbo].[Stock]    Script Date: 2023/3/1 17:35:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Cart](
+	[Cart_id] [int] IDENTITY(1,1) NOT NULL,
+	[Product_name] [varchar](50) NOT NULL,
+	[Quantity] [int] NOT NULL,
+	[Cus_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Cart_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Cart](
+--	[Cart_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Product_name] [varchar](50) NOT NULL,
+--	[Quantity] [int] NOT NULL,
+--	[Cus_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Cart_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Categories](
+	[Category] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Category] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Categories](
+--	[Category] [varchar](50) NOT NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Category] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Check_out](
+	[Cho_id] [int] IDENTITY(1,1) NOT NULL,
+	[Amount] [real] NOT NULL,
+	[Cus_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Cho_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Check_out](
+--	[Cho_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Amount] [real] NOT NULL,
+--	[Cus_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Cho_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Comment](
+	[Comm_id] [int] IDENTITY(1,1) NOT NULL,
+	[Comments] [varchar](255) NOT NULL,
+	[Comm_date] [datetime] NOT NULL,
+	[Cus_id] [int] NULL,
+	[Commo_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Comm_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Comment](
+--	[Comm_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Comments] [varchar](255) NOT NULL,
+--	[Comm_date] [datetime] NOT NULL,
+--	[Cus_id] [int] NULL,
+--	[Commo_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Comm_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Commodity](
+	[Commo_id] [int] IDENTITY(1,1) NOT NULL,
+	[Price] [real] NOT NULL,
+	[Commo_name] [varchar](50) NOT NULL,
+	[Category] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Commo_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Commodity](
+--	[Commo_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Price] [real] NOT NULL,
+--	[Commo_name] [varchar](50) NOT NULL,
+--	[Category] [varchar](50) NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Commo_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Commodity_rate](
+	[Com_rate_id] [int] IDENTITY(1,1) NOT NULL,
+	[Com_rate] [int] NOT NULL,
+	[Comm_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Com_rate_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Commodity_rate](
+--	[Com_rate_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Com_rate] [int] NOT NULL,
+--	[Comm_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Com_rate_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Customer](
+	[Cus_id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](255) NOT NULL,
+	[Email] [varchar](50) NOT NULL,
+	[Username] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Cus_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Customer](
+--	[Cus_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Name] [varchar](255) NOT NULL,
+--	[Email] [varchar](50) NOT NULL,
+--	[Username] [varchar](50) NOT NULL,
+--	[Password] [varchar](50) NOT NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Cus_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Purchased](
+	[Pur_id] [int] IDENTITY(1,1) NOT NULL,
+	[Product_name] [varchar](50) NOT NULL,
+	[Pur_date] [datetime] NOT NULL,
+	[Cus_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Pur_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Purchased](
+--	[Pur_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Product_name] [varchar](50) NOT NULL,
+--	[Pur_date] [datetime] NOT NULL,
+--	[Cus_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Pur_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Rate](
+	[rate_id] [int] IDENTITY(1,1) NOT NULL,
+	[Rate] [int] NOT NULL,
+	[Seller_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[rate_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Rate](
+--	[rate_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Rate] [int] NOT NULL,
+--	[Seller_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[rate_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Recipt](
+	[Rec_id] [int] IDENTITY(1,1) NOT NULL,
+	[Cho_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Rec_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Recipt](
+--	[Rec_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Cho_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Rec_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Seller](
+	[Seller_id] [int] IDENTITY(1,1) NOT NULL,
+	[Seller_Name] [varchar](50) NOT NULL,
+	[Cus_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Seller_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Seller](
+--	[Seller_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Seller_Name] [varchar](50) NOT NULL,
+--	[Cus_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Seller_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Shipment](
+	[Ship_id] [int] IDENTITY(1,1) NOT NULL,
+	[Estimate_date] [date] NOT NULL,
+	[Duration] [int] NOT NULL,
+	[Pur_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ship_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Shipment](
+--	[Ship_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Estimate_date] [date] NOT NULL,
+--	[Duration] [int] NOT NULL,
+--	[Pur_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Ship_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[Stock](
+	[Stock_id] [int] IDENTITY(1,1) NOT NULL,
+	[Stock_num] [real] NOT NULL,
+	[Commo_id] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Stock_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+--语法错误: OPTIMIZE_FOR_SEQUENTIAL_KEY 附近的语法不正确。
+--CREATE TABLE [dbo].[Stock](
+--	[Stock_id] [int] IDENTITY(1,1) NOT NULL,
+--	[Stock_num] [real] NOT NULL,
+--	[Commo_id] [int] NULL,
+--PRIMARY KEY CLUSTERED 
+--(
+--	[Stock_id] ASC
+--)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+--) ON [PRIMARY]
+
+
+
+GO
