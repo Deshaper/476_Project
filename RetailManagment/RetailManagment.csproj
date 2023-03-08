@@ -132,9 +132,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SellController.cs" />
+    <Compile Include="Migrations\202303071602384_Commoditys.cs" />
+    <Compile Include="Migrations\202303071602384_Commoditys.designer.cs">
+      <DependentUpon>202303071602384_Commoditys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Check_out.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Commodity.cs" />
@@ -152,9 +157,7 @@
     <Compile Include="Models\Recipt.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\Shipment.cs" />
-    <Compile Include="Models\Stock.cs" />
     <Compile Include="sysdiagram.cs" />
-    <Compile Include="ViewModels\Commodity_stock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -192,8 +195,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\SignUp.cshtml" />
-    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Signup.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
@@ -202,8 +204,8 @@
     <Content Include="Views\Customers\Order_History.cshtml" />
     <Content Include="Views\Sell\Post_Your_Product.cshtml" />
     <Content Include="Views\Product\Comment.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -216,6 +218,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202303071602384_Commoditys.resx">
+      <DependentUpon>202303071602384_Commoditys.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

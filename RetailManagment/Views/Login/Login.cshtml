@@ -1,0 +1,22 @@
+﻿@model RetailManagment.Models.Customer
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using(Html.BeginForm("Login","Account", FormMethod.Post))
+            {
+                 <label for="Username">Email:</label>   
+                 <input type="text", name="Username" id="Username" />
+
+                 <label for="Username">Password</label>
+                 <input type="hidden", name="Password" id="Password" />
+
+                 <input type="submit" value="login" />
+            }
+
+            
+
