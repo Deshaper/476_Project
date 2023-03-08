@@ -14,7 +14,6 @@ namespace RetailManagment.Data
         }
 
         public virtual DbSet<Cart> Carts { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Check_out> Check_out { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Commodity> Commodities { get; set; }
@@ -25,7 +24,6 @@ namespace RetailManagment.Data
         public virtual DbSet<Recipt> Recipts { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
-        public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -33,15 +31,6 @@ namespace RetailManagment.Data
             modelBuilder.Entity<Cart>()
                 .Property(e => e.Product_name)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Category>()
-                .Property(e => e.Category1)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Category>()
-                .HasMany(e => e.Commodities)
-                .WithOptional(e => e.Category1)
-                .HasForeignKey(e => e.Category);
 
             modelBuilder.Entity<Comment>()
                 .Property(e => e.Comments)

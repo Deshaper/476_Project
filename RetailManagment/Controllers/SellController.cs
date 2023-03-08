@@ -20,18 +20,19 @@ namespace RetailManagment.Controllers
             return View(db.Sellers.ToList());
         }
 
-        // GET: Sell/Create
+        // GET:Sell/ Post_Your_Product
         public ActionResult Post_Your_Product()
         {
             return View();
         }
 
-        // POST: Sell/Create
+        // POST: Sell/Post_Your_Product
         [HttpPost]
-        public ActionResult Post_Your_Product([Bind(Include = "Commo_id,Price,Commo_name,Category")] Commodity commodity)
+        public ActionResult Post_Your_Product([Bind(Include = "Commo_id,Price,Commo_name,Category,Stocks, Commodities_img")] Commodity commodity)
         {
             if (ModelState.IsValid)
             {
+                             
                 db.Commodities.Add(commodity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -40,48 +41,50 @@ namespace RetailManagment.Controllers
             return View(commodity);
         }
 
-        // GET: Sell/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: Sell/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
+            // GET: Sell/Edit/5
+            public ActionResult Edit(int id)
             {
                 return View();
             }
-        }
 
-        // GET: Sell/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Sell/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
+            // POST: Sell/Edit/5
+            [HttpPost]
+            public ActionResult Edit(int id, FormCollection collection)
             {
-                // TODO: Add delete logic here
+                try
+                {
+                    // TODO: Add update logic here
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
+
+            // GET: Sell/Delete/5
+            public ActionResult Delete(int id)
             {
                 return View();
             }
+
+            // POST: Sell/Delete/5
+            [HttpPost]
+            public ActionResult Delete(int id, FormCollection collection)
+            {
+                try
+                {
+                    // TODO: Add delete logic here
+
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
         }
-    }
 }
+

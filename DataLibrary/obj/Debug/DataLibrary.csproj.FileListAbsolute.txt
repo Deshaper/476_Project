@@ -15,3 +15,9 @@ C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj
 C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
 C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.dll
 C:\Users\JunhaoZhang\Downloads\476_Project-Main\476_Project-Main\DataLibrary\obj\Debug\DataLibrary.pdb
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\DataLibrary\obj\Debug\DataLibrary.csproj.AssemblyReference.cache
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\DataLibrary\obj\Debug\DataLibrary.pdb

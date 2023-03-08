@@ -37,7 +37,7 @@ namespace RetailManagment.Controllers
         }
 
         // GET: Customers/Create
-        public ActionResult Create()
+        public ActionResult Signup()
         {
             return View();
         }
@@ -49,7 +49,7 @@ namespace RetailManagment.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Cus_id,Name,Email,Username,Password")] Customer customer)
+        public ActionResult Signup([Bind(Include = "Cus_id,Name,Email,Username,Password")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -77,8 +77,6 @@ namespace RetailManagment.Controllers
         }
 
         // POST: Customers/Edit/5
-        // 为了防止“过多发布”攻击，请启用要绑定到的特定属性；有关
-        // 更多详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Cus_id,Name,Email,Username,Password")] Customer customer)

@@ -5,6 +5,7 @@ namespace RetailManagment.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Data.SqlTypes;
 
     [Table("Commodity")]
     public partial class Commodity
@@ -13,7 +14,6 @@ namespace RetailManagment.Models
         public Commodity()
         {
             Comments = new HashSet<Comment>();
-            Stocks = new HashSet<Stock>();
         }
 
         [Key]
@@ -28,12 +28,12 @@ namespace RetailManagment.Models
         [StringLength(50)]
         public string Category { get; set; }
 
-        public virtual Category Category1 { get; set; }
+        public int Stocks { get; set; }
+
+        public byte[] Commodities_img { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }
