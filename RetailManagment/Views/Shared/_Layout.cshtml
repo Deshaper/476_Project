@@ -27,6 +27,11 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
+            <div>
+                <!-- Use the Name that has stored in Session to present the User has logged in
+                     And if none user has logged in preseng Guest-->
+                <p>Welcome @(Session["Name"] ?? "Guest")</p>
+            </div>
         </div>
     </div>
     <div class="container body-content">

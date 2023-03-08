@@ -22,7 +22,6 @@ namespace RetailManagment.Models
         [Key]
         public int Cus_id { get; set; }
 
-        [Required]
         [StringLength(255)]
         public string Name { get; set; }
 
@@ -30,7 +29,6 @@ namespace RetailManagment.Models
         [StringLength(50)]
         public string Email { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string Username { get; set; }
 
