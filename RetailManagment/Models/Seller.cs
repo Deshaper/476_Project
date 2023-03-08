@@ -1,5 +1,6 @@
 namespace RetailManagment.Models
 {
+    using RetailManagment.Migrations;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -13,6 +14,7 @@ namespace RetailManagment.Models
         public Seller()
         {
             Rates = new HashSet<Rate>();
+            Commodities = new HashSet<Commodity>();
         }
 
         [Key]
@@ -28,5 +30,7 @@ namespace RetailManagment.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rate> Rates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Commodity> Commodities { get; set;}
     }
 }

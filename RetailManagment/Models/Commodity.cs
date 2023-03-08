@@ -30,7 +30,14 @@ namespace RetailManagment.Models
 
         public int Stocks { get; set; }
 
+        [StringLength(255)]
+        public string Description { get; set; }
+
         public byte[] Commodities_img { get; set; }
+
+        public int? Seller_id { get; set; }
+
+        public virtual Seller Seller { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
