@@ -80,9 +80,13 @@
                     Commo_name = c.String(nullable: false, maxLength: 50, unicode: false),
                     Category = c.String(maxLength: 50, unicode: false),
                     Stocks = c.Int(nullable: false),
+                    Description = c.String(nullable: false, maxLength: 255, unicode: false),
                     Commodities_img = c.Binary(),
+                    Seller_id = c.Int(nullable: false),
                 })
-                .PrimaryKey(t => t.Commo_id);
+                .PrimaryKey(t => t.Commo_id)
+                .ForeignKey("dbo.Seller", t => t.Seller_id)
+                .Index(t => t.Seller_id);
 
             CreateTable(
                 "dbo.Commodity_rate",
@@ -145,10 +149,20 @@
                 .PrimaryKey(t => t.rate_id)
                 .ForeignKey("dbo.Seller", t => t.Seller_id)
                 .Index(t => t.Seller_id);
+
+            CreateTable(
+               "dbo.Categories",
+               c => new
+               {
+                   Id = c.Int(nullable: false, identity: true),
+                   Category_name = c.String(nullable: false, maxLength: 50, unicode: false),
+               })
+               .PrimaryKey(t => t.Id);
         }
         public override void Down()
         {
             DropForeignKey("dbo.Rate", "Seller_id", "dbo.Seller");
+            DropForeignKey("dbo.Commodity", "Seller_id", "dbo,Seller");
             DropForeignKey("dbo.Seller", "Cus_id", "dbo.Customer");
             DropForeignKey("dbo.Shipment", "Pur_id", "dbo.Purchased");
             DropForeignKey("dbo.Purchased", "Cus_id", "dbo.Customer");
@@ -159,6 +173,7 @@
             DropForeignKey("dbo.Check_out", "Cus_id", "dbo.Customer");
             DropForeignKey("dbo.Cart", "Cus_id", "dbo.Customer");
             DropIndex("dbo.Rate", new[] { "Seller_id" });
+            DropIndex("dbo.Commodity", new[] { "Seller_id" });
             DropIndex("dbo.Seller", new[] { "Cus_id" });
             DropIndex("dbo.Shipment", new[] { "Pur_id" });
             DropIndex("dbo.Purchased", new[] { "Cus_id" });
@@ -169,6 +184,7 @@
             DropIndex("dbo.Recipt", new[] { "Cho_id" });
             DropIndex("dbo.Check_out", new[] { "Cus_id" });
             DropIndex("dbo.Cart", new[] { "Cus_id" });
+            DropTable("dbo.Categories");
             DropTable("dbo.Rate");
             DropTable("dbo.Seller");
             DropTable("dbo.Shipment");

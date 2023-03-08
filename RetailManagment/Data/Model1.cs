@@ -24,6 +24,7 @@ namespace RetailManagment.Data
         public virtual DbSet<Recipt> Recipts { get; set; }
         public virtual DbSet<Seller> Sellers { get; set; }
         public virtual DbSet<Shipment> Shipments { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -43,6 +44,10 @@ namespace RetailManagment.Data
             modelBuilder.Entity<Commodity>()
                 .Property(e => e.Category)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Commodity>()
+               .Property(e => e.Description)
+               .IsUnicode(false);
 
             modelBuilder.Entity<Customer>()
                 .Property(e => e.Name)
@@ -67,6 +72,8 @@ namespace RetailManagment.Data
             modelBuilder.Entity<Seller>()
                 .Property(e => e.Seller_Name)
                 .IsUnicode(false);
+            modelBuilder.Entity<Categories>()
+                .Property(e => e.Category_name) .IsUnicode(false);
         }
     }
 }

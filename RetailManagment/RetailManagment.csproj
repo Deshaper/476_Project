@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Migrations\202303071602384_Commoditys.cs" />
@@ -140,6 +141,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Categories.cs" />
     <Compile Include="Models\Check_out.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Commodity.cs" />
@@ -205,6 +207,8 @@
     <Content Include="Views\Sell\Post_Your_Product.cshtml" />
     <Content Include="Views\Product\Comment.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Commodity\SearchList.cshtml" />
+    <Content Include="Views\Commodity\Commodity_detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
