@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -13,6 +14,7 @@ namespace RetailManagment.Controllers
 {
     public class CustomersController : Controller
     {
+        private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
 
         // GET: Customers
@@ -51,14 +53,44 @@ namespace RetailManagment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Signup([Bind(Include = "Cus_id,Name,Email,Username,Password")] Customer customer)
         {
+          
+
+            string q1 = "INSERT INTO Cart(Cus_id) VALUES (@CUSID)";
+            
+            
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+            }
+            var cus_name = customer.Name;
+
+            var cusid = db.Customers.FirstOrDefault(c => c.Name == cus_name);
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(q1, sqlConnection);
+                cmd.Parameters.AddWithValue("@CUSID", cusid.Cus_id);
+
+                try
+                {
+                    sqlConnection.Open(); 
+                    int rowaff = cmd.ExecuteNonQuery();
+                    if (rowaff > 0)
+                    {
+                        Console.WriteLine("success open);");
+                    }
+                    Console.Write(cmd.CommandText);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error");
+                }
+
+                sqlConnection.Close();
             }
 
-            return View(customer);
+            return RedirectToAction("Index");
         }
 
         // GET: Customers/Edit/5

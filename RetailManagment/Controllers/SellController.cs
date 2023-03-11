@@ -30,6 +30,7 @@ namespace RetailManagment.Controllers
         [HttpPost]
         public ActionResult Post_Your_Product([Bind(Include = "Commo_id,Price,Commo_name,Category,Stocks, Commodities_img")] Commodity commodity)
         {
+           
             if (ModelState.IsValid)
             {
                              

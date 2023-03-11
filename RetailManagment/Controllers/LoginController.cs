@@ -43,6 +43,7 @@ namespace RetailManagment.Controllers
 
                 // connect to database and execute the query
                 sqlConnection.Open();
+               
                 //Start reader to read the cmd result
                 SqlDataReader reader = cmd.ExecuteReader(); 
                 // Validate if there is Matching data from database

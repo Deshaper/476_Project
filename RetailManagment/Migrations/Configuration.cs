@@ -1,6 +1,5 @@
 ﻿namespace RetailManagment.Migrations
 {
-    using RetailManagment.Controllers;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -20,7 +19,7 @@
                 new Models.Customer { Cus_id = 1, Name = "Jay", Email = "Jay123@uregina.ca", Username = "Jay123", Password = "Jay123" },
                 new Models.Customer { Cus_id = 2, Name = "Kay", Email = "Kay123@uregina.ca", Username = "Kay123", Password = "Kay123" },
                 new Models.Customer { Cus_id = 3, Name = "Ken", Email = "Kenken@uregina.ca", Username = "Ken123", Password = "Ken123" }
-            ) ;
+            );
 
             context.Sellers.AddOrUpdate(
                 d => d.Seller_id,
