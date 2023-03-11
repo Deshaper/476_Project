@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<RetailManagment.Models.Commodity>
 
 @{
-    ViewBag.Title = "SearchList";
+    ViewBag.Title = "Cart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SearchList</h2>
+<h2>Cart</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -20,6 +23,12 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stocks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Commodities_img)
@@ -42,10 +51,18 @@
             @Html.DisplayFor(modelItem => item.Category)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Stocks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Commodities_img)
         </td>
         <td>
-            @Html.ActionLink("Details", "Commodity_detail", new { id=item.Commo_id }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.Commo_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Commo_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Commo_id })
         </td>
     </tr>
 }

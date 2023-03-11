@@ -7,13 +7,13 @@ namespace RetailManagment.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Commoditys : IMigrationMetadata
+    public sealed partial class Commo : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Commoditys));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Commo));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303071602384_Commoditys"; }
+            get { return "202303111938540_Commo"; }
         }
         
         string IMigrationMetadata.Source

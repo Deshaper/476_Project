@@ -424,5 +424,5 @@ C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\bin\zh-Hans\Sy
 C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
 C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\obj\Debug\RetailManagment.csproj.CopyComplete
-C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\obj\Debug\RetailManagment.Migrations.Commoditys.resources
+C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\obj\Debug\RetailManagment.Migrations.Commo.resources
 C:\Users\JunhaoZhang\Documents\GitHub\476_Project\RetailManagment\obj\Debug\RetailManagment.csproj.GenerateResource.cache

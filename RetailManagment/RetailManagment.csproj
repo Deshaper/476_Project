@@ -135,9 +135,9 @@
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SellController.cs" />
-    <Compile Include="Migrations\202303071602384_Commoditys.cs" />
-    <Compile Include="Migrations\202303071602384_Commoditys.designer.cs">
-      <DependentUpon>202303071602384_Commoditys.cs</DependentUpon>
+    <Compile Include="Migrations\202303111938540_Commo.cs" />
+    <Compile Include="Migrations\202303111938540_Commo.designer.cs">
+      <DependentUpon>202303111938540_Commo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -209,6 +209,8 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Commodity\SearchList.cshtml" />
     <Content Include="Views\Commodity\Commodity_detail.cshtml" />
+    <Content Include="Views\Customers\Cart.cshtml" />
+    <Content Include="Views\Cart\Cart_Transport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -224,12 +226,12 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202303071602384_Commoditys.resx">
-      <DependentUpon>202303071602384_Commoditys.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <EmbeddedResource Include="Migrations\202303111938540_Commo.resx">
+      <DependentUpon>202303111938540_Commo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

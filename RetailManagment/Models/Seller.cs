@@ -1,6 +1,6 @@
 namespace RetailManagment.Models
 {
-    using RetailManagment.Migrations;
+    //using RetailManagment.Migrations;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

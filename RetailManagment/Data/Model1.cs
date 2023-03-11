@@ -29,9 +29,6 @@ namespace RetailManagment.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Cart>()
-                .Property(e => e.Product_name)
-                .IsUnicode(false);
 
             modelBuilder.Entity<Comment>()
                 .Property(e => e.Comments)
