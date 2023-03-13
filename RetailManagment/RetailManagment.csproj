@@ -132,6 +132,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SellController.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\Shipment.cs" />
     <Compile Include="sysdiagram.cs" />
+    <Compile Include="ViewModels\Particular_cart.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -210,7 +212,7 @@
     <Content Include="Views\Commodity\SearchList.cshtml" />
     <Content Include="Views\Commodity\Commodity_detail.cshtml" />
     <Content Include="Views\Customers\Cart.cshtml" />
-    <Content Include="Views\Cart\Cart_Transport.cshtml" />
+    <Content Include="Views\Cart\CartList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -225,9 +227,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202303111938540_Commo.resx">
       <DependentUpon>202303111938540_Commo.cs</DependentUpon>
