@@ -1,0 +1,37 @@
+﻿@model List<RetailManagment.ViewModels.Particular_cart>
+
+@{
+    ViewBag.Title = "CartList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart_Transport</h2>
+
+<div>
+    <h4>Cart</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @{
+            foreach (var cart1 in Model)
+            {
+                <dt>
+                    @cart1.Product_name
+                </dt>
+
+                <dd>
+                    @cart1.Quantity
+                </dd>
+
+                <dt>
+                    @Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = cart1.Product_name.ToString()}, null)
+                </dt>
+            }
+        }
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

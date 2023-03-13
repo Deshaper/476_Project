@@ -45,6 +45,22 @@ namespace RetailManagment.Controllers
             return View(commodities_ent);
         }
 
+        public ActionResult Commodity_detail_withname(string name)
+        {
+            if (name == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Console.WriteLine(name);
+
+            Commodity commodity_ent = db.Commodities.FirstOrDefault(c=>c.Commo_name==name);
+            if (commodity_ent == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Commodity_detail", commodity_ent);
+        }
+
         [HttpPost]
         public ActionResult AddtoCart(int Commo_id, string Commo_name, int Stocks)
         {
@@ -63,14 +79,14 @@ namespace RetailManagment.Controllers
                 sqlconnection.Close();
             }
 
-            Commodity commodities_ent = db.Commodities.Find(Commo_id);
+           // Commodity commodities_ent = db.Commodities.Find(Commo_id);
 
 
-            if (commodities_ent == null)
-            {
-                return HttpNotFound();
-            }
-            return View(commodities_ent);
+           // if (commodities_ent == null)
+           // {
+            //    return HttpNotFound();
+           // }
+            return RedirectToAction("SearchList");
         }
     }
 }
