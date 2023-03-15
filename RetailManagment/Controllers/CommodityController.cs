@@ -88,5 +88,26 @@ namespace RetailManagment.Controllers
            // }
             return RedirectToAction("SearchList");
         }
+        // 2023 3/ 14 New Function for client order to compute the LeadTime
+        public ActionResult Buy(int Commo_id, string Commo_name,string Brand, int Stocks)
+        {
+          
+            var item = db.Commodities.Find(Commo_id);
+            var orderHistory = db.Purchaseds.Where(o => o.Commo_id == Commo_id);
+            var totalLeadTime = new TimeSpan();
+            foreach (var history in orderHistory)
+            {
+                var leadTime = history.Delivery_date - history.Delivery_date;
+                totalLeadTime += leadTime;
+            }
+            var avgLeadTime = (int)totalLeadTime.TotalDays / orderHistory.Count();
+
+            item.Leadtime = avgLeadTime;
+            db.SaveChanges();
+
+            ViewBag.ItemName = item.Commo_name;
+            ViewBag.LeadTime = avgLeadTime;
+            return View();
+        }
     }
 }

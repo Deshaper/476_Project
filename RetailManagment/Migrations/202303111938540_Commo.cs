@@ -70,20 +70,23 @@
                 .ForeignKey("dbo.Customer", t => t.Cus_id)
                 .Index(t => t.Cus_id)
                 .Index(t => t.Commo_id);
-            
+
             CreateTable(
                 "dbo.Commodity",
                 c => new
-                    {
-                        Commo_id = c.Int(nullable: false, identity: true),
-                        Price = c.Single(nullable: false),
-                        Commo_name = c.String(nullable: false, maxLength: 50, unicode: false),
-                        Category = c.String(maxLength: 50, unicode: false),
-                        Stocks = c.Int(nullable: false),
-                        Description = c.String(maxLength: 255, unicode: false),
-                        Commodities_img = c.Binary(),
-                        Seller_id = c.Int(),
-                    })
+                {
+                    Commo_id = c.Int(nullable: false, identity: true),
+                    Price = c.Single(nullable: false),
+                    Commo_name = c.String(nullable: false, maxLength: 50, unicode: false),
+                    Category = c.String(maxLength: 50, unicode: false),
+                    Brand = c.String(nullable: false, maxLength: 50, unicode: false),
+                    Stocks = c.Int(nullable: false),
+                    Description = c.String(maxLength: 255, unicode: false),
+                    Commodities_img = c.Binary(),
+                    Leadtime = c.Int(),
+                    DemandVarialbility = c.Decimal(),
+                    Seller_id = c.Int(),
+                })
                 .PrimaryKey(t => t.Commo_id)
                 .ForeignKey("dbo.Seller", t => t.Seller_id)
                 .Index(t => t.Seller_id);
@@ -123,20 +126,28 @@
                 .PrimaryKey(t => t.Com_rate_id)
                 .ForeignKey("dbo.Comment", t => t.Comm_id)
                 .Index(t => t.Comm_id);
-            
+
             CreateTable(
                 "dbo.Purchased",
                 c => new
-                    {
-                        Pur_id = c.Int(nullable: false, identity: true),
-                        Product_name = c.String(nullable: false, maxLength: 50, unicode: false),
-                        Pur_date = c.DateTime(nullable: false),
-                        Cus_id = c.Int(),
-                    })
+                {
+                    Pur_id = c.Int(nullable: false, identity: true),
+                    Product_name = c.String(nullable: false, maxLength: 50, unicode: false),
+                    Brand = c.String(nullable: false, maxLength: 50, unicode: false),
+                    Quantity = c.Int(),
+                    Price = c.Decimal(),
+                    Status = c.String(),
+                    Pur_date = c.DateTime(nullable: false),
+                    Delivery_date = c.DateTime(nullable: false),
+                    Cus_id = c.Int(),
+                    Commo_id = c.Int()
+                })
                 .PrimaryKey(t => t.Pur_id)
                 .ForeignKey("dbo.Customer", t => t.Cus_id)
-                .Index(t => t.Cus_id);
-            
+                .ForeignKey("dbo.Commodity", t => t.Commo_id)
+                .Index(t => t.Cus_id)
+                .Index(t => t.Commo_id);
+
             CreateTable(
                 "dbo.Shipment",
                 c => new
@@ -177,6 +188,7 @@
         {
             DropForeignKey("dbo.Shipment", "Pur_id", "dbo.Purchased");
             DropForeignKey("dbo.Purchased", "Cus_id", "dbo.Customer");
+            DropForeignKey("dbo.Purchased", "Commo_id", "dbo.Commodity");
             DropForeignKey("dbo.Comment", "Cus_id", "dbo.Customer");
             DropForeignKey("dbo.Commodity_rate", "Comm_id", "dbo.Comment");
             DropForeignKey("dbo.Rate", "Seller_id", "dbo.Seller");
@@ -188,6 +200,7 @@
             DropForeignKey("dbo.Cart", "Cus_id", "dbo.Customer");
             DropIndex("dbo.Shipment", new[] { "Pur_id" });
             DropIndex("dbo.Purchased", new[] { "Cus_id" });
+            DropIndex("dbo.Purchased", new[] { "Commo_id" });
             DropIndex("dbo.Commodity_rate", new[] { "Comm_id" });
             DropIndex("dbo.Rate", new[] { "Seller_id" });
             DropIndex("dbo.Seller", new[] { "Cus_id" });

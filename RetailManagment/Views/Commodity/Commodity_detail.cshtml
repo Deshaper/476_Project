@@ -74,6 +74,7 @@
             {
                 @Html.HiddenFor(model => model.Commo_id);
                 @Html.HiddenFor(model => model.Commo_name);
+                @Html.HiddenFor(model => model.Brand);
                 <div class="form-group">
                     @Html.LabelFor(model => model.Stocks, "Quantity of your items", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -84,6 +85,27 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="AddtoCart" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </p>
+
+        <p>
+            @using (Html.BeginForm("Buy", "Commodity", FormMethod.Post))
+            {
+                @Html.HiddenFor(model => model.Commo_id);
+                @Html.HiddenFor(model => model.Commo_name);
+                @Html.HiddenFor(model => model.Brand);
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Stocks, "Quantity of your items", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Stocks, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Stocks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Buy" class="btn btn-default" />
                     </div>
                 </div>
             }

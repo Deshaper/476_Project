@@ -14,6 +14,7 @@ namespace RetailManagment.Models
         public Commodity()
         {
             Comments = new HashSet<Comment>();
+            Purchaseds = new HashSet<Purchased>();
         }
 
         [Key]
@@ -27,6 +28,9 @@ namespace RetailManagment.Models
 
         [StringLength(50)]
         public string Category { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Brand { get; set; }
 
         public int Stocks { get; set; }
 
@@ -35,12 +39,19 @@ namespace RetailManagment.Models
 
         public byte[] Commodities_img { get; set; }
 
+        public int Leadtime { get; set; }
+
+        public decimal DemandVarialbility { get; set; }
+
         public int? Seller_id { get; set; }
 
         public virtual Seller Seller { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Purchased> Purchaseds { get; set; }
 
     }
 }

@@ -4,7 +4,7 @@
     ViewBag.Title = "CartList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<head><script src="~/Scripts/jquery-{version}.js"></script></head>
 <h2>Cart_Transport</h2>
 
 <div>
@@ -23,11 +23,12 @@
                 </dd>
 
                 <dt>
-                    @Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = cart1.Product_name.ToString()}, null)
+                    @Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = cart1.Product_name.ToString() }, null)
                 </dt>
             }
         }
 
+       
 
 
     </dl>
