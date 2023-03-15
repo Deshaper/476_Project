@@ -46,6 +46,10 @@ namespace RetailManagment.Data
                .Property(e => e.Description)
                .IsUnicode(false);
 
+            modelBuilder.Entity<Commodity>()
+               .Property(e => e.Brand)
+               .IsUnicode(false);
+
             modelBuilder.Entity<Customer>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -64,6 +68,10 @@ namespace RetailManagment.Data
 
             modelBuilder.Entity<Purchased>()
                 .Property(e => e.Product_name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Purchased>()
+                .Property(e => e.Brand)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Seller>()

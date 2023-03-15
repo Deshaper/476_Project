@@ -29,19 +29,19 @@
                 );
 
             context.Commodities.AddOrUpdate(
-        new Models.Commodity { Commo_id = 1, Price = 10.99f, Commo_name = "Product 1", Category = "Books", Stocks = 100, Description = "Book for computer science", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 2, Price = 12.99f, Commo_name = "Product 2", Category = "Games", Stocks = 200, Description = "Description 2", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 3, Price = 15.99f, Commo_name = "Product 3", Category = "Electronics", Stocks = 150, Description = "Description 3", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 4, Price = 8.99f, Commo_name = "Product 4", Category = "Games", Stocks = 300, Description = "Description 4", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 5, Price = 11.99f, Commo_name = "Product 5", Category = "Games", Stocks = 250, Description = "Description 5", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 6, Price = 14.99f, Commo_name = "Product 6", Category = "Games", Stocks = 200, Description = "Description 6", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 7, Price = 9.99f, Commo_name = "Product 7", Category = "Games", Stocks = 400, Description = "Description 7", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 8, Price = 13.99f, Commo_name = "Product 8", Category = "Electronics", Stocks = 300, Description = "Description 8", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 9, Price = 16.99f, Commo_name = "Product 9", Category = "Books", Stocks = 250, Description = "Description 9", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 10, Price = 7.99f, Commo_name = "Product 10", Category = "Books", Stocks = 500, Description = "Description 10", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 11, Price = 10.99f, Commo_name = "Product 11", Category = "Books", Stocks = 350, Description = "Description 11", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 12, Price = 12.99f, Commo_name = "Product 12", Category = "Books", Stocks = 300, Description = "Description 12", Seller_id = 3 },
-        new Models.Commodity { Commo_id = 13, Price = 8.99f, Commo_name = "Product 13", Category = "Books", Stocks = 600, Description = "Description 13", Seller_id = 3 }
+        new Models.Commodity { Commo_id = 1, Price = 10.99f, Commo_name = "Product 1", Category = "Books", Brand = "JayF1", Stocks = 100, Description = "Book for computer science", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 2, Price = 12.99f, Commo_name = "Product 2", Category = "Games", Brand = "JayF1", Stocks = 200, Description = "Description 2", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 3, Price = 15.99f, Commo_name = "Product 3", Category = "Electronics", Brand = "JayF1", Stocks = 150, Description = "Description 3", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 4, Price = 8.99f, Commo_name = "Product 4", Category = "Games", Brand = "JayF1", Stocks = 300, Description = "Description 4", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 5, Price = 11.99f, Commo_name = "Product 5", Category = "Games", Brand = "JayF1", Stocks = 250, Description = "Description 5", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 6, Price = 14.99f, Commo_name = "Product 6", Category = "Games", Brand = "JayF1", Stocks = 200, Description = "Description 6", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 7, Price = 9.99f, Commo_name = "Product 7", Category = "Games", Brand = "JayF1", Stocks = 400, Description = "Description 7", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 8, Price = 13.99f, Commo_name = "Product 8", Category = "Electronics", Brand = "JayF1", Stocks = 300, Description = "Description 8", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 9, Price = 16.99f, Commo_name = "Product 9", Category = "Books", Brand = "JayF1", Stocks = 250, Description = "Description 9", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 10, Price = 7.99f, Commo_name = "Product 10", Category = "Books", Brand = "JayF1", Stocks = 500, Description = "Description 10", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 11, Price = 10.99f, Commo_name = "Product 11", Category = "Books", Brand = "JayF1", Stocks = 350, Description = "Description 11", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 12, Price = 12.99f, Commo_name = "Product 12", Category = "Books", Brand = "JayF1", Stocks = 300, Description = "Description 12", Seller_id = 3 },
+        new Models.Commodity { Commo_id = 13, Price = 8.99f, Commo_name = "Product 13", Category = "Books", Brand = "JayF1", Stocks = 600, Description = "Description 13", Seller_id = 3 }
                     );
 
             //  This method will be called after migrating to the latest version.

@@ -1,0 +1,99 @@
+﻿@model RetailManagment.Models.Commodity
+
+@{
+    ViewBag.Title = "Products_Inven_level";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products_Inven_level</h2>
+
+<div>
+    <h4>Commodity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Seller.Seller_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seller.Seller_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Commo_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Commo_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stocks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stocks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Commodities_img)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Commodities_img)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leadtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leadtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DemandVarialbility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DemandVarialbility)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Commo_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
