@@ -215,6 +215,8 @@
     <Content Include="Views\Customers\Cart.cshtml" />
     <Content Include="Views\Cart\CartList.cshtml" />
     <Content Include="Views\Inventory\Products_Inven_level.cshtml" />
+    <Content Include="Views\Inventory\Add_Inventory.cshtml" />
+    <Content Include="Views\Inventory\Update_Pro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
