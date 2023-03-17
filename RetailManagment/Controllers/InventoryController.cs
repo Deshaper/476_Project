@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RetailManagment.Data;
@@ -16,17 +17,47 @@ namespace RetailManagment.Controllers
         // 2023/3/ 14 New Function
         private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
-        public ActionResult Products_Inven_level(int Commo_id)
+        public ActionResult Products_Inven_level()
         {
-            var item = db.Commodities.Find(Commo_id);
-            var serviceLevel = 0.95; // 95% service level
-            var zValue = 1.64; // Z-value for 95% service level
-            decimal stdDeviation = item.DemandVarialbility * (Decimal)Math.Sqrt(item.Leadtime);
-            var safetyStockLevel = (Decimal)zValue * stdDeviation;
+            return View(db.Commodities.ToList());
+        }
 
-            ViewBag.ItemName = item.Commo_name;
-            ViewBag.SafetyStockLevel = safetyStockLevel;
+        public ActionResult Add_Inventory()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add_Inventory(Commodity item)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Commodities.Add(item);
+                db.SaveChanges();
+
+                if (item.Stocks < item.Leadtime)
+                {
+                    TempData["Alert"] = $"Warning: {item.Commo_name} inventory level is below the threshold!";
+                }
+                return RedirectToAction("Products_Inven_level");
+            }
+
+            return View(item);
+        }
+
+        public ActionResult Update_Pro(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Commodity commoditys = db.Commodities.Find(id);
+            if (commoditys == null)
+            {
+                return HttpNotFound();
+            }
+
+            return RedirectToAction("Products_Inven_level");
         }
     }
 }
