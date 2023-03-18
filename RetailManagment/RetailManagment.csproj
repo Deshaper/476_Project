@@ -162,6 +162,7 @@
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\Shipment.cs" />
     <Compile Include="sysdiagram.cs" />
+    <Compile Include="ViewModels\Inven_alert.cs" />
     <Compile Include="ViewModels\Particular_cart.cs" />
   </ItemGroup>
   <ItemGroup>
