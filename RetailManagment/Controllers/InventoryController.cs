@@ -19,7 +19,36 @@ namespace RetailManagment.Controllers
         private Model1 db = new Model1();
         public ActionResult Products_Inven_level()
         {
-            return View(db.Commodities.ToList());
+            List<Inven_alert> model2 = new List<Inven_alert>();
+            var alerts = new List<string>();
+            var allItems = db.Commodities.ToList();
+
+
+            string q2 = "SELECT * FROM Commodity WHERE Leadtime IS NOT NULL";
+
+            using (SqlConnection sqlConnection = new SqlConnection(_connectionString))
+            {
+
+                SqlCommand cmd = new SqlCommand(q2, sqlConnection);
+
+                sqlConnection.Open();
+
+                using (SqlDataReader read = cmd.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                       // Inven_alert Inven1 = new Inven_alert();
+                        if ((int)read["Stocks"] < (int)read["Leadtime"])
+                        {
+                           // Inven1.Inven_item.Add((string)read["Product_name"]);
+                            alerts.Add($"Item: {read["Commo_name"]} (Quantity: {read["Stocks"]}, is in low stocks, require to add more stocks");
+                        }
+                    }
+                }
+               
+                ViewBag.Alerts = alerts;
+                return View(allItems);
+            }
         }
 
         public ActionResult Add_Inventory()

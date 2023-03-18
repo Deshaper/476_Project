@@ -7,25 +7,32 @@
 
 <table class="table">
 
-    @if (TempData["Alert"] != null)
-    {
-        <div class="alert alert-warning">
-            @TempData["Alert"]
-        </div>
-    }
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Quantity</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+    <thread>
+        @if (ViewBag.alerts != null && ViewBag.Alerts.Count > 0)
         {
-            <tr>
-                <td>@item.Commo_name</td>
-                <td>@item.Stocks</td>
-            </tr>
+            foreach (var alert in ViewBag.Alerts)
+            {
+                <div class="alert alert-info">
+                    @alert
+                </div>
+            }
+        }
+    </thread>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <dt>
+                    @item.Commo_name
+                </dt>
+
+                <dd>
+                    @item.Stocks
+                </dd>
+                <dt>
+                    @Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = item.Commo_name.ToString() }, null)
+                </dt>
+            }
         }
     </tbody>
 </table>
