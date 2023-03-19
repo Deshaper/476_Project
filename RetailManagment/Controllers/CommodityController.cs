@@ -16,7 +16,7 @@ namespace RetailManagment.Controllers
     public class CommodityController : Controller
     {
 
-        private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private readonly string _connectionString = "data source=LAPTOP-UN9M6QIN;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
 
         // SearchResult
@@ -33,6 +33,13 @@ namespace RetailManagment.Controllers
 
         public ActionResult Commodity_detail(int? id)
         {
+
+
+            if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -95,17 +102,25 @@ namespace RetailManagment.Controllers
             var item = db.Commodities.Find(Commo_id);
             var orderHistory = db.Purchaseds.Where(o => o.Commo_id == Commo_id);
             var totalLeadTime = new TimeSpan();
-            foreach (var history in orderHistory)
+            int avgLeadTime = 0;
+            if (orderHistory.Count() > 0)
             {
-                var leadTime = history.Delivery_date - history.Delivery_date;
-                totalLeadTime += leadTime;
+                foreach (var history in orderHistory)
+                {
+                    var leadTime = history.Delivery_date - history.Delivery_date;
+                    totalLeadTime += leadTime;
+                }
+                avgLeadTime = (int)totalLeadTime.TotalDays / orderHistory.Count();
+
+                item.Leadtime = avgLeadTime;
             }
-            var avgLeadTime = (int)totalLeadTime.TotalDays / orderHistory.Count();
+            else
+            {
+                item.Leadtime = 0;
 
-            item.Leadtime = avgLeadTime;
-            db.SaveChanges();
-
-            ViewBag.ItemName = item.Commo_name;
+            }
+                db.SaveChanges();
+                ViewBag.ItemName = item.Commo_name;
             ViewBag.LeadTime = avgLeadTime;
             return View();
         }

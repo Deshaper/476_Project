@@ -5,21 +5,36 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.Mvc;
 using RetailManagment.Data;
 using RetailManagment.Models;
+using System.Web.SessionState;
+using System.Web.Routing;
+
 
 namespace RetailManagment.Controllers
 {
+
     public class CustomersController : Controller
     {
-        private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+   
+
+        private readonly string _connectionString = "data source=LAPTOP-UN9M6QIN;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
 
-        // GET: Customers
-        public ActionResult Index()
+     
+
+    // GET: Customers
+
+    public ActionResult Index()
         {
+            if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             return View(db.Customers.ToList());
         }
 

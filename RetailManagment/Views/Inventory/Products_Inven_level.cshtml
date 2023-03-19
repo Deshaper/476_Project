@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
 }
 
+
 <h2>Inventory</h2>
 
 <table class="table">
@@ -22,16 +23,11 @@
         @{
             foreach (var item in Model)
             {
-                <dt>
-                    @item.Commo_name
-                </dt>
-
-                <dd>
-                    @item.Stocks
-                </dd>
-                <dt>
-                    @Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = item.Commo_name.ToString() }, null)
-                </dt>
+                <tr>
+                    <td>@item.Commo_name</td>
+                    <td>@item.Stocks</td>
+                    <td>@Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = item.Commo_name.ToString() }, null)</td>
+                </tr>
             }
         }
     </tbody>
