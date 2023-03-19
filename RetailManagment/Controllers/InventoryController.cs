@@ -15,10 +15,15 @@ namespace RetailManagment.Controllers
     {
         // GET: Inventory
         // 2023/3/ 14 New Function
-        private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private readonly string _connectionString = "data source=LAPTOP-UN9M6QIN;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
         public ActionResult Products_Inven_level()
         {
+
+            if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             List<Inven_alert> model2 = new List<Inven_alert>();
             var alerts = new List<string>();
             var allItems = db.Commodities.ToList();
@@ -53,6 +58,11 @@ namespace RetailManagment.Controllers
 
         public ActionResult Add_Inventory()
         {
+
+            if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             return View();
         }
 

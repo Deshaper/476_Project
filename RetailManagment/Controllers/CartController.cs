@@ -12,13 +12,20 @@ namespace RetailManagment.Controllers
 {
     public class CartController : Controller
     {
-        private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private readonly string _connectionString = "data source=LAPTOP-UN9M6QIN;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
 
 
         // GET: Cart/CarList
         public ActionResult CartList()
         {
+
+
+            if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             List<Particular_cart> model2 = new List<Particular_cart>();
 
             var nameuse = Session["name"];
@@ -41,9 +48,9 @@ namespace RetailManagment.Controllers
                     {
                         Particular_cart cart1 = new Particular_cart();
 
-                        cart1.Product_name = (string)read["Product_name"];
-                        cart1.Quantity = (int)read["Quantity"];
-                        cart1.Cus_id = (int)read["Cus_id"];
+                        cart1.Product_name = Convert.IsDBNull(read["Product_name"]) ? null : (string)read["Product_name"];
+                        cart1.Quantity = Convert.IsDBNull(read["Quantity"]) ? 0 : (int)read["Quantity"];
+                        cart1.Cus_id = Convert.IsDBNull(read["Cus_id"]) ? 0 : (int)read["Cus_id"];
 
                         model2.Add(cart1);
                         

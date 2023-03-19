@@ -4,35 +4,33 @@
     ViewBag.Title = "CartList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head><script src="~/Scripts/jquery-{version}.js"></script></head>
+<head>
+    <script src="~/Scripts/jquery-{version}.js"></script>
+</head>
 <h2>Cart_Transport</h2>
-
-<div>
-    <h4>Cart</h4>
-    <hr />
-    <dl class="dl-horizontal">
+<table class="table">
+    <div>
+        <h4>Cart</h4>
+        <hr />
+        <dl class="dl-horizontal">
+    <tbody>
         @{
             foreach (var cart1 in Model)
             {
-                <dt>
-                    @cart1.Product_name
-                </dt>
-
-                <dd>
-                    @cart1.Quantity
-                </dd>
-
-                <dt>
-                    @Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = cart1.Product_name.ToString() }, null)
-                </dt>
+                <tr>
+                    <td>@cart1.Product_name</td>
+                    <td>@cart1.Quantity</td>
+                    <td>@Html.ActionLink("Details", "Commodity_detail_withname", "Commodity", new { name = cart1.Product_name ?? string.Empty }, null)</td>
+                </tr>
             }
         }
-
-       
+    </tbody>
+    </table>
 
 
     </dl>
-</div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    </div>
+    
+        @Html.ActionLink("Back to List", "Index")
+  
+  
