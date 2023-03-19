@@ -7,13 +7,14 @@ using System.Data.SqlClient;
 using RetailManagment.Models;
 using RetailManagment.Data;
 using System.ComponentModel.DataAnnotations;
+using System.Web.SessionState;
 
 namespace RetailManagment.Controllers
 {
    
     public class LoginController : Controller
     {
-        private readonly string _connectionString = "data source=LAPTOP-SNS0CLD2;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private readonly string _connectionString = "data source=LAPTOP-UN9M6QIN;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
         [HttpGet]
         public ActionResult Login()
@@ -54,6 +55,7 @@ namespace RetailManagment.Controllers
 
                     // Automatically start session
                     Session["Name"] = name;
+                    Session["IsLoggedIn"] = true;
 
                     return RedirectToAction("Index","Home");
                 }
@@ -64,7 +66,9 @@ namespace RetailManagment.Controllers
                 }
             }
 
-            
+           
+
         }
+      
     }
 }
