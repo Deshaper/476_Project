@@ -1,6 +1,77 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* header styles */
+        .navbar {
+            background-color: #333;
+            border: none;
+            border-radius: 0;
+            height: 50px;
+        }
+
+        .navbar-brand {
+            font-size: 36px;
+            font-weight: bold;
+            color: red;
+        }
+
+
+        .navbar-nav > li > a {
+            word-spacing: 3.0em;
+            color: #fff;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .navbar-nav > li > a:hover,
+            .navbar-nav > li > a:focus {
+                color: #f5f5f5;
+            }
+
+        .navbar-toggle {
+            border: none;
+        }
+
+        .icon-bar {
+            background-color: #fff;
+        }
+
+
+
+
+        input[name="search_string"] {
+            width: 150px;
+        }
+
+        .navbar-collapse {
+            position: relative;
+        }
+
+        .search-wrapper {
+            position: relative;
+            top: -68px;
+            right: -800px;
+        }
+
+        .guest {
+            position: relative;
+            top: -35px;
+            right: -1100px;
+            color: white;
+        }
+        </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
@@ -11,12 +82,13 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                @Html.ActionLink("R M S", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Retail Management System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -25,28 +97,42 @@
                     <li>@Html.ActionLink("SignUp", "Signup", "Customers")</li>
                     <li>@Html.ActionLink("Login", "Login", "Login")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Cart", "CartList", "Cart")</li>
+
                     <li>@Html.ActionLink("AddInven", "Add_Inventory", "Inventory")</li>
                     <li>@Html.ActionLink("Inventory_list", "Products_Inven_level", "Inventory")</li>
+
+                   
+                    <li>
+                        <a href="@Url.Action("CartList", "Cart")">
+                            <i class="fas fa-shopping-cart" style="color: white;"></i>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
-            <div>
-                <!-- Use the Name that has stored in Session to present the User has logged in
-                     And if none user has logged in preseng Guest-->
-                <p>Welcome @(Session["Name"] ?? "Guest")</p>
+           
+
+                <div class=" guest">
+                    <!-- Use the Name that has stored in Session to present the User has logged in
+            And if none user has logged in preseng Guest-->
+                    <p>Welcome @(Session["Name"] ?? "Guest")</p>
+                </div>
+           
+
+            <div class="search-wrapper">
+                @using (Html.BeginForm("SearchList", "Commodity", FormMethod.Post))
+                {
+                    <input type="text" name="search_string" />
+                    <input type="submit" value="Search" />
+                }
             </div>
-            @using (Html.BeginForm("SearchList","Commodity", FormMethod.Post))
-            {
-                <input type="text" name="search_string" />
-                <input type="submit" value="Search" />
-            }
         </div>
-    </div>
+        </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+          
         </footer>
     </div>
 
