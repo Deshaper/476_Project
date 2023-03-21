@@ -1,0 +1,28 @@
+CREATE TABLE Orders (
+    OrderId  INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerId INT NOT NULL,
+    OrderDate DATETIME NOT NULL,
+    TotalAmount DECIMAL(10,2) NOT NULL,
+    CONSTRAINT FK_CustomerOrder FOREIGN KEY (CustomerId) REFERENCES Customer(Cus_id)
+
+);
+
+CREATE TABLE employee (
+    employee_id INT IDENTITY(1,1) PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    start_date DATE DEFAULT GETDATE(),
+    end_date DATE DEFAULT '2099-12-31'
+);
+
+
+CREATE TABLE OrderDetails (
+    OrderId INT NOT NULL,
+    ProductId INT NOT NULL,
+    Quantity INT NOT NULL,
+    Price DECIMAL(10,2) NOT NULL,
+    CONSTRAINT PK_OrderDetails PRIMARY KEY (OrderId, ProductId),
+    CONSTRAINT FK_OrderProduct FOREIGN KEY (ProductId) REFERENCES Products(id),
+    CONSTRAINT FK_Order FOREIGN KEY (OrderId) REFERENCES Orders(OrderId)
+);
