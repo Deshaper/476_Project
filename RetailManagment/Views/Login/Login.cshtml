@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
+<h3>Please Login to use the Retail Managment System</h3>
 
 @using(Html.BeginForm("Login","Login", FormMethod.Post))
             {
@@ -20,6 +20,7 @@
 
             <button type ="submit">login</button> 
             }
-
+<hr />
+<h5>If you do not have an account @Html.ActionLink("SignUp", "Signup", "Customers"). </h5>
             
 
