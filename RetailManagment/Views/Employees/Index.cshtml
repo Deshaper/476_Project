@@ -1,0 +1,52 @@
+﻿@model IEnumerable<RetailManagement.Models.Employee>
+
+@{
+    ViewBag.Title = "Employee HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Employee HomePage</h4>
+
+<p>
+    @Html.ActionLink("Create New Employee", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("First Name")
+        </th>
+        <th>
+            @Html.DisplayName("Last Name")
+        </th>
+        <th>
+            @Html.DisplayName("Role")
+        </th>
+        <th>
+            @Html.DisplayName("Employee Start Date")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.first_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.start_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.employee_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.employee_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.employee_id })
+        </td>
+    </tr>
+}
+
+</table>

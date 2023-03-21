@@ -1,3 +1,4 @@
+using RetailManagement.Models;
 using RetailManagment.Models;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,7 +27,8 @@ namespace RetailManagment.Data
         public virtual DbSet<Shipment> Shipments { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
@@ -80,5 +82,6 @@ namespace RetailManagment.Data
             modelBuilder.Entity<Categories>()
                 .Property(e => e.Category_name) .IsUnicode(false);
         }
+
     }
 }
