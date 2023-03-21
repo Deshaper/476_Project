@@ -17,15 +17,22 @@ namespace RetailManagment.Controllers
         private Model1 db = new Model1();
 
         // GET: Orders
-        public ActionResult Index()
+        public ActionResult Index(DateTime? OrderDate)
         {
+
             if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
             {
                 return RedirectToAction("Login", "Login");
             }
-            return View(db.Orders.ToList());
-        }
+            var orders = db.Orders.AsQueryable();
 
+            if (OrderDate != null)
+            {
+                orders = orders.Where(e => e.OrderDate >= OrderDate);
+            }
+
+            return View(orders.ToList());
+        }
         // GET: Orders/Details/5
         public ActionResult Details(int? id)
         {

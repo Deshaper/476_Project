@@ -15,7 +15,7 @@ namespace RetailManagment.Controllers
     {
         // GET: Inventory
         // 2023/3/ 14 New Function
-        private readonly string _connectionString = "data source=LAPTOP-UN9M6QIN;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+        private readonly string _connectionString = "data source=DESKTOP-NS6UO45;initial catalog=Retail_management;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
         private Model1 db = new Model1();
         public ActionResult Products_Inven_level()
         {

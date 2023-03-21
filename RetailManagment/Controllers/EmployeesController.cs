@@ -15,15 +15,33 @@ namespace RetailManagment.Controllers
     {
         private Model1 db = new Model1();
 
+
+
+
         // GET: Employees
-        public ActionResult Index()
+        public ActionResult Index(DateTime? startDate, DateTime? endDate)
         {
+
             if (Session["IsLoggedIn"] == null || (bool)Session["IsLoggedIn"] == false)
             {
                 return RedirectToAction("Login", "Login");
             }
-            return View(db.Employees.ToList());
+            var employees = db.Employees.AsQueryable();
+
+            if (startDate != null)
+            {
+                employees = employees.Where(e => e.start_date >= startDate);
+            }
+
+            if (endDate != null)
+            {
+                employees = employees.Where(e => e.end_date < endDate);
+            }
+            
+            return View(employees.ToList());
         }
+
+
 
         // GET: Employees/Details/5
         public ActionResult Details(int? id)

@@ -5,11 +5,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
+    <!-- Add the following script and CSS files -->
+    <meta charset="utf-8" />
+    @Styles.Render("~/Content/css")
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.en-GB.min.js"></script>
+</head>
+
+
 <h4>Employee HomePage</h4>
 
 <p>
     @Html.ActionLink("Create New Employee", "Create")
 </p>
+<div class="form-inline">
+    <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="text" class="form-control datepicker" data-provide="datepicker" name="startDate" id="startDate">
+    </div>
+    <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="text" class="form-control datepicker" data-provide="datepicker" name="endDate" id="endDate">
+    </div>
+    <button type="button" class="btn btn-primary" id="filterButton">Filter</button>
+</div>
+<br>
 <table class="table">
     <tr>
         <th>
@@ -27,26 +52,55 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.first_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.last_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.role)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.start_date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.employee_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employee_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.employee_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.first_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.last_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.employee_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.employee_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.employee_id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@section scripts {
+    <script>
+
+        $(function () {
+            // Initialize the datepicker on the input fields with data-provide="datepicker"
+            $('[data-provide="datepicker"]').datepicker({
+                autoclose: true,
+                format: 'yyyy-mm-dd'
+            }).on('show', function (e) {
+                console.log('Datepicker show event fired.');
+            }).on('hide', function (e) {
+                console.log('Datepicker hide event fired.');
+            }).on('changeDate', function (e) {
+                console.log('Datepicker changeDate event fired. New date: ', e.date);
+            });
+
+            console.log("Datepicker initialized on " + $('[data-provide="datepicker"]').length + " input field(s)");
+        });
+
+        $('#filterButton').click(function () {
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+
+            window.location.href = '/Employees/Index?startDate=' + startDate + '&endDate=' + endDate;
+        });
+    </script>
+}
