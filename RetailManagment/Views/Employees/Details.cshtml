@@ -5,22 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h4><b>Employee Details </b></h4>
 
 <div>
     <h4>Employee</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.first_name)
+            @Html.LabelFor(model => model.first_name, "First Name:")
         </dt>
+
 
         <dd>
             @Html.DisplayFor(model => model.first_name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.last_name)
+            @Html.LabelFor(model => model.last_name, "Last Name:")
         </dt>
 
         <dd>
@@ -28,7 +29,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.role)
+            @Html.LabelFor(model => model.role, "Role:")
         </dt>
 
         <dd>
@@ -36,7 +37,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.start_date)
+            @Html.LabelFor(model => model.role, "Start Date:")
         </dt>
 
         <dd>
@@ -44,7 +45,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.end_date)
+            @Html.LabelFor(model => model.role, "End Date:")
         </dt>
 
         <dd>
